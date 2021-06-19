@@ -1,0 +1,21 @@
+project:
+  name: Application
+  version: 0.1
+  description: Job Scheduler Management Service Application
+
+# Server Running Port
+server:
+  port: 8060
+
+# Bean Definition Overriding
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+# Processing time in Milli Second for each Job
+job:
+  processing:
+    timedelay: 500
+  queue:
+    execution:
+      time: 2000
