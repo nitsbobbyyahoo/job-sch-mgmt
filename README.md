@@ -8,14 +8,28 @@
 Header
   - contentType: application/json
 
-Input Request 
+Input Request Body to create jobs:
 ```sh
   body: {
     "data": "Job 1",
-    "jobType": "LOAD_DATA",
-    "priorityLevel": "LOW",
+    "jobSchedulerType": "LOAD_DATA",
+    "jobSchedulerPriorityLevel": "LOW",
     "delay": 2000
-}
+  }
+
+  body: {
+    "data": "Job 2",
+    "jobSchedulerType": "INDEX_FILES",
+    "jobSchedulerPriorityLevel": "HIGH",
+    "delay": 1000
+  }
+
+  body: {
+    "data": "Job 3",
+    "jobSchedulerType": "SEND_EMAIL",
+    "jobSchedulerPriorityLevel": "LOW",
+    "delay": 2000
+  }
 ```
 JobType: As per requirement 3 different type of job are available: 
   - LOAD_DATA
@@ -26,18 +40,18 @@ Priority Level: There are 2 priority levels:
    - LOW
    - HIGH
 
-And ofcourse by default it will be LOW.
+By default, the priority will be LOW.
 
 Based on priority task will get executed with HIGH precedence over LOW priority task.
 
 There is a Delay time in request, to tell after how many millisecond task should execute.
 
-Response
+Response from 1st API will be:
 ```sh
      Job added to queue successfully.
 ```
 ```sh
-2. Second API is a developd for getting all jobs from the queue. - It's a GET CALL
+2. Second API is developd for getting all jobs from the queue. - It's a GET CALL
  - http://localhost:8060/managejobschedule/getAllJobs
 ```
 
